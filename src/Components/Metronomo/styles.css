@@ -1,0 +1,27 @@
+.metronome-conteiner {
+    width: 50%;
+    height: 80%;
+    background-color: white;
+}
+
+.metronome {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.metronome-base-img, .metronome-stick-img, .metronome-hole-detail, .metronome-weight {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+/* 
+.metronome-stick-img {
+    transform: rotate(-50deg);
+    transform-origin: 51% 68.5%;
+} */
