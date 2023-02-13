@@ -2,10 +2,10 @@ import { useState } from "react"
 
 
 function useProvider() {
-    const [groceries, setGroceries] = useState([])
+    const [metronomeOn, setMetronomeOn] = useState(false)
 
     return {
-        groceries, setGroceries
+        metronomeOn, setMetronomeOn
     }
 }
 
