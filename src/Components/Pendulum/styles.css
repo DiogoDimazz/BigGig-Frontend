@@ -1,0 +1,68 @@
+.pendulum-first-move-box {
+    width: 10%;
+    height: 72.5%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    transform-origin: bottom;
+
+
+}
+
+.pendulum-group {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-origin: bottom;
+    display: flex;
+    justify-content: center;
+
+
+}
+.metronome-stick-img {
+    width: 80%;
+    height: 80%;
+    bottom: 0px;
+}
+
+.metronome-weight {
+    width: 40%;
+    transition: 0.5s bottom ease-in-out;
+}
+
+
+.light-bulb-element {
+    width: 5%;
+    height: 5%;
+    bottom: 10%;
+    position: absolute
+}
+
+
+.light-bulb {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    outline: 2px outset rgb(199, 169, 153);
+    border: 1px inset rgb(77, 52, 39);
+}
+
+.light-bulb-flash {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: transparent;
+    box-shadow: 0px 0px 2px red,
+                0px 0px 6px rgb(177, 0, 0),
+                0px 0px 12px rgb(255, 75, 75),
+                0px 0px 15px rgb(234, 128, 128);
+}
+
+.light-bulb-shine {
+    width: 30%;
+    height: 30%;
+    top: 23%;
+    left: 22%;
+    background-color: rgb(246, 122, 122);
+    border-radius: 50% 20% 90% 50%;
+}
