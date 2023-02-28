@@ -1,0 +1,43 @@
+.first-move {
+    height: 26.8rem;
+    width: 3rem;
+
+    transform-origin: bottom;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    padding-bottom: 3px;
+    
+}
+
+.pendulum {
+    height: 100%;
+    width: 2rem;
+
+    transform-origin: bottom;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+
+    background-image: url('../../assets/haste.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+}
+
+.pendulum-weight {
+    width: 170%;
+    height: 12%;
+    position: absolute;
+    left: -35%;
+
+    background-image: url('../../assets/peso.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+}

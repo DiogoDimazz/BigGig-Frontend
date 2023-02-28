@@ -1,7 +1,34 @@
 .main-page {
     width: 100vw;
     height: 100vh;
-    background-color: black;
+
+    background-color: var(--white-100);
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: calc(100% - 7rem);
+}
+
+.left-main-side {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+
+    background-image: url('../../assets/wood-pattern.png');
+    image-orientation: 90deg;
+    background-color: var(--wood-palette-200);
+    padding-left: 5rem;
+    padding-right: 1rem;
+}
+
+.right-main-side{
+    width: 40%;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,0 +1,17 @@
+
+.time-info-conteiner {
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.time-label {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.time-signature-input {
+    width: 10rem;
+}
