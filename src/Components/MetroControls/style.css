@@ -1,8 +1,8 @@
 .controls-main {
-    width: 100%;
+    width: 58%;
     height: 85%;
 
-    border-radius: 0.5rem;
+    border-radius: 0.8rem;
 
     padding: 6rem 1rem 1rem 1rem;
 
@@ -11,6 +11,11 @@
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+
+    background-color: var(--wood-palette-300-3);
+    border: 0.1rem solid var(--wood-palette-400);
+    outline: 0.2rem solid var(--wood-palette-400);
+    outline-style: inset;
 }
 
 

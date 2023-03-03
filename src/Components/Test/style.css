@@ -1,0 +1,60 @@
+.geral {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.frame {
+    height: 80%;
+    width: 20%;
+
+    border-bottom: 500px solid brown;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+}
+
+.primeiro {
+    margin-bottom: -400px;
+    background-color: blue;
+    height: 380px;
+    width: 20%;
+
+    transform-origin: bottom;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.pendulo {
+    width: 50%;
+    height: 90%;
+    background-color: lightblue;
+
+    transform-origin: bottom;
+}
+
+.info {
+
+    width: 500px;
+    height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px
+
+}
+
+.informer {
+    font-size: large;
+    color: black;
+}

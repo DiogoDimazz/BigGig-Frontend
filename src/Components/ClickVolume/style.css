@@ -1,0 +1,26 @@
+.volume-conteiner {
+    height: 8%;
+    width: 70%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+.fader-hole {
+    height: 0.4rem;
+    width: 100%;
+    border-top: 0.2rem solid var(--wood-palette-500);
+    border-bottom: 0.2rem solid var(--wood-palette-300);
+
+    border-radius: 0.5rem;
+}
+
+.fader-knob {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+}

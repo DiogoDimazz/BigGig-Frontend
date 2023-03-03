@@ -6,11 +6,10 @@ export const BpmInput = () => {
     const {
         setMetronomeOn,
         realBpm, setRealBpm,
-        bpmIncrease,
-        bpmDecrease} = useConsumer()
+        bpmChangeValue, setBpmChangeValue
+    } = useConsumer()
     const bpmInputRef = useRef(null)
-    const bpmIncreaseRef = useRef(null)
-    const bpmDecreaseRef = useRef(null)
+    const bpmChangeValueRef = useRef(null)
 
     let isFirstInput = true
 
@@ -28,16 +27,27 @@ export const BpmInput = () => {
         }
 
         if(code === 'ArrowUp') {
-            if(bpmInputRef.current.value > 240 - bpmIncrease) {return}
+            if(bpmInputRef.current.value > 240 - bpmChangeValue) {return}
 
-            bpmInputRef.current.value += bpmIncrease
-            setRealBpm(prev => prev + bpmIncrease)
+            bpmInputRef.current.value += bpmChangeValue
+            setRealBpm(prev => prev + bpmChangeValue)
         }
 
         if(code === 'ArrowDown') {
-            if(bpmInputRef.current.value - bpmDecrease < 30) {return}
-            bpmInputRef.current.value -= bpmDecrease
-            setRealBpm(prev => prev - bpmDecrease)
+            if(bpmInputRef.current.value - bpmChangeValue < 30) {return}
+            bpmInputRef.current.value -= bpmChangeValue
+            setRealBpm(prev => prev - bpmChangeValue)
+        }
+
+        if(code === 'ArrowRight') {
+            console.log(bpmChangeValue);
+            if(bpmChangeValue === 10) {return}
+            setBpmChangeValue(prev => prev+1)
+        }
+        
+        if(code === 'ArrowLeft') {
+            if(bpmChangeValue === 1) {return}
+            setBpmChangeValue(prev => prev-1)
         }
 
     }
@@ -54,9 +64,10 @@ export const BpmInput = () => {
         window.addEventListener('keydown', keyboardInputs)
 
         return()=>{
+            window.removeEventListener('keydown', keyboardInputs)
         }
         //eslint-disable-next-line
-    }, [])
+    }, [realBpm, bpmChangeValue])
 
 
     return (
@@ -66,22 +77,17 @@ export const BpmInput = () => {
                     BPM
             </label>
             <div className='bpm-change-values'>
-                <div className='bpm-increase-box'>
-                    <div className='bpm-increase-first-line'>
-                        <input ref={bpmIncreaseRef} className='increase-bpm bpm-change-input' defaultValue={bpmIncrease}/>
-                        <button className='bpm-changer-btn'>+</button>
+            <div className='bpm-change-controls'>
+                <button className='bpm-changer-btn'>+</button>
+                <div className='bpm-change-inner-box'>
+                    <button className='left-arrow-bpm-changer arrows-bpm-changer'/>
+                        <span ref={bpmChangeValueRef} className='bpm-change-input small-input-font'>{bpmChangeValue}</span>
+                        <button className='right-arrow-bpm-changer arrows-bpm-changer'/>
                     </div>
-                    <span className='small-disclaimer bpm-changer-span'>ou seta pra cima</span>
-                </div>
-                <div className='bpm-decrease-box'>
-                    <span className='small-disclaimer bpm-changer-span'>ou seta pra baixo</span>
-                    <div className='bpm-decrease-first-line'>
-                        <input ref={bpmDecreaseRef} className='decrease-bpm bpm-change-input' defaultValue={bpmDecrease}/>
-                        <button className='bpm-changer-btn'>-</button>
-                    </div>
-                </div>
-            
+                <button className='bpm-changer-btn'>-</button>
             </div>
+            <span className='small-disclaimer bpm-changer-span'>use as setas do teclado</span>
+        </div>
         </div>
     )
 }

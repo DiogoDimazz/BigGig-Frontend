@@ -3,23 +3,32 @@ import { useState } from "react"
 
 function useProvider() {
     const [metronomeOn, setMetronomeOn] = useState(false)
+
     const [realBpm, setRealBpm] = useState(60)
-    const [bpmIncrease, setBpmIncrease] = useState(2)
-    const [bpmDecrease, setBpmDecrease] = useState(2)
+    const [bpmChangeValue, setBpmChangeValue] = useState(2)
+    const [bpmInMilisseconds, setBpmInMilisseconds] = useState(1000)
+    
+    const [faderPositionPercentage, setFaderPositionPercentage] = useState()
+
     const [timeSignature, setTimeSignature] = useState({
         time: '4/4',
         compoundMeter: false,
-        beats: ['strong', 'weak', 'weak', 'weak']
+        beats: ['strong', 'weak', 'weak', 'weak'],
+        isBeat: [false, false, false, false]
     })
-    const [bpmInMilisseconds, setBpmInMilisseconds] = useState()
+    const [isBulbLit, setIsBulbLit] = useState([false, false, false, false])
+
+    const [info, setInfo] = useState()
 
     return {
         metronomeOn, setMetronomeOn,
         realBpm, setRealBpm,
-        bpmIncrease, setBpmIncrease,
-        bpmDecrease, setBpmDecrease,
+        bpmChangeValue, setBpmChangeValue,
         timeSignature, setTimeSignature,
-        bpmInMilisseconds, setBpmInMilisseconds
+        isBulbLit, setIsBulbLit,
+        bpmInMilisseconds, setBpmInMilisseconds,
+        faderPositionPercentage, setFaderPositionPercentage,
+        info, setInfo
     }
 }
 

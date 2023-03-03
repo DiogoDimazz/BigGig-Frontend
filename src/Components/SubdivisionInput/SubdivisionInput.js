@@ -3,32 +3,32 @@ import './style.css'
 import useConsumer from '../../Hooks/useConsumer'
 
 export const SubdivisionInput = () => {
-    const {timeSignature} = useConsumer()
+    const {timeSignature, isBulbLit, setIsBulbLit} = useConsumer()
 
 
-    function bulbColor(beat) {
+    function bulbColor(beat, index) {
         switch (beat) {
             case 'strong':
                 return {
-                    backgroundColor: 'var(--green-bulb-off)',
+                    backgroundColor: isBulbLit[index] ? 'green' : 'var(--green-bulb-off)',
                     width: '100%',
                     height: '100%'
                 };
             case 'weak':
                 return {
-                    backgroundColor: 'var(--red-bulb-off)',
+                    backgroundColor: isBulbLit[index] ? 'red' : 'var(--red-bulb-off)',
                     width: '100%',
                     height: '100%'
                 };
             case 'medium':
                 return {
-                    backgroundColor: 'var(--red-bulb-off)',
+                    backgroundColor: isBulbLit[index] ? 'var(--orange-100)' : 'var(--orange-bulb-off)',
                     width: '100%',
                     height: '100%'
                 };
             case 'subdivision':
                 return {
-                    backgroundColor: 'var(--red-bulb-off)',
+                    backgroundColor: isBulbLit[index] ? 'red' : 'var(--red-bulb-off)',
                     width: '50%',
                     height: '50%',
                     top: '50%',
@@ -39,49 +39,56 @@ export const SubdivisionInput = () => {
         }
     }
 
-    function glowColor(beat) {
+    function glowColor(beat, index) {
         switch (beat) {
             case 'strong':
                 return {
-                    backgroundColor: 'var(--green-glow)',
+                    backgroundColor: isBulbLit[index] ? 'var(--green-glow-on)' : 'var(--green-glow)',
                     top: '0.2rem',
                     left: '0.3rem'
                 };
+            case 'medium':
+                return {
+                    backgroundColor: isBulbLit[index] ? 'var(--orange-glow-on)' : 'var(--orange-glow)',
+                    top: '0.2rem',
+                    left: '0.3rem'
+                }
             case 'subdivision': 
             return {
-                backgroundColor: 'var(--red-glow)',
+                backgroundColor: isBulbLit[index] ? 'var(--red-glow-on)' : 'var(--red-glow)',
                 left: '0.1rem'
             }
             default:
                 return {
-                    backgroundColor: 'var(--red-glow)',
+                    backgroundColor: isBulbLit[index] ? 'var(--red-glow-on)' : 'var(--red-glow)',
                     top: '0.2rem',
                     left: '0.3rem'
                 }
         }
     }
 
-    function blinkColor(beat) {
+    function blinkColor(beat, index) {
         switch (beat) {
             case 'strong':
                 return {
-                    boxShadow: '0 0 1rem green',
-                    display: 'none'
+                    boxShadow: '0 0 2rem green',
+                    display: isBulbLit[index] ? 'flex' : 'none'
                 }
             case 'medium':
                 return {
-                    boxShadow: '0.1rem 0.1rem 1rem red',
-                    display: 'none'
+                    boxShadow: '0rem 0rem 2rem var(--orange-100)',
+                    display: isBulbLit[index] ? 'flex' : 'none'
                 }
             default:
                 return {
-                    boxShadow: '0.1rem 0.1rem 1rem red',
-                    display: 'none'
+                    boxShadow: '0rem 0rem 2rem red',
+                    display: isBulbLit[index] ? 'flex' : 'none'
                 }
         }
     }
 
     useEffect(() => {
+        setIsBulbLit(timeSignature.isBeat)
     }, [timeSignature])
 
     return (
@@ -91,9 +98,9 @@ export const SubdivisionInput = () => {
                 <div className='subdivision-bulbs'>
                     {timeSignature.beats.map((beat, index) => (
                         <div className='beat' key={index}>
-                            <span className='bulb' style={bulbColor(beat)}>
-                                <span className='glow' style={glowColor(beat)}/>
-                                <span className='blink' style={blinkColor(beat)}/>
+                            <span className='bulb' style={bulbColor(beat, index)}>
+                                <span className='glow' style={glowColor(beat, index)}/>
+                                <span className='blink' style={blinkColor(beat, index)}/>
                             </span>
                         </div>
                     ))}
