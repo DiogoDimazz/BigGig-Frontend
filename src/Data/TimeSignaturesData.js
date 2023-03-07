@@ -1,5 +1,11 @@
 export const timeSignaturesData = [
     {
+        time: 'single beat',
+        compoundMeter: false,
+        beats: ['strong'],
+        isBeat: [false]
+    },
+    {
         time: '4/4',
         compoundMeter: false,
         beats: ['strong', 'weak', 'weak', 'weak'],

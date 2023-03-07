@@ -1,0 +1,26 @@
+.power-button {
+    width: 6rem;
+    height: 6rem;
+
+    border-radius: 50%;
+    border: 0.3rem solid var(--wood-palette-600);
+    background-color: var(--wood-palette-300);
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.power-button:hover {
+    cursor: pointer;
+}
+
+.button-text {
+    z-index: 2;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--wood-palette-600);
+}

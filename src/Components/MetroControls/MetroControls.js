@@ -3,6 +3,7 @@ import './style.css'
 import { TimeSignatureInput } from '../TimeSignatureInput/TimeSignatureInput'
 import { SubdivisionInput } from '../SubdivisionInput/SubdivisionInput'
 import { ClickVolume } from '../ClickVolume/ClickVolume'
+import { PowerButton } from '../PowerButton/PowerButton'
 
 
 export const MetroControls = () => {
@@ -11,7 +12,10 @@ export const MetroControls = () => {
     return (
         <main className='controls-main'>
             <BpmInput/>
-            <TimeSignatureInput/>
+            <div className='line-div'>
+                <PowerButton/>
+                <TimeSignatureInput/>
+            </div>
             <ClickVolume/>
             <SubdivisionInput/>
         </main>

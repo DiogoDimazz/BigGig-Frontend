@@ -14,4 +14,10 @@
 
 .time-signature-input {
     width: 10rem;
+    background-color: var(--white-100);
+}
+
+.time-signature-input:focus {
+    outline: none;
+    border: none;
 }
